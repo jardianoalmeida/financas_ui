@@ -1,0 +1,35 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+
+
+            <a mat-list-item routerLink="/" class="navbar-usuario">
+                <i class="material-icons">home</i> {{ authService.jwtPayload?.nome }}
+            </a>
+            <a mat-list-item routerLink="/dashboard" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo" *ngIf="authService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+                <i class="material-icons">home</i> Dashboard
+            </a>
+
+            <a mat-list-item routerLink="/lancamentos" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo" *ngIf="authService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+                <i class="material-icons">home</i> Lançamentos
+            </a>
+
+            <a mat-list-item routerLink="/pessoas" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo" *ngIf="authService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+                <i class="material-icons">home</i> Pessoas
+            </a>
+
+            <li class="navbar-usuario ">Relatórios</li>
+            <a mat-list-item routerLink="/relatorios/lancamentos" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo" *ngIf="authService.temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+                <i class="material-icons">home</i> Lançamentos
+            </a>
+
+            <a mat-list-item href="javascript:;" (click)="logout()">
+                <i class="material-icons">exit_to_app</i> Logout
+            </a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

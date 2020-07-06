@@ -1,0 +1,205 @@
+<mat-card>
+    <mat-card-title>Novo Lançamentos</mat-card-title>
+
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>Vencimento</mat-label>
+        <input matInput [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>Até</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+
+
+    <div class="ui-g-12 ui-md-9 ui-fluid">
+
+
+        <mat-form-field style="width: 70%;" appearance="fill">
+            <mat-label>Descrição</mat-label>
+            <input matInput placeholder="Título da notificação" name="descricao" formControlName="descricao">
+            <app-message [control]="formulario.get('descricao')" error="obrigatoriedade" text="Informe uma descrição"></app-message>
+            <app-message [control]="formulario.get('descricao')" error="tamanhoMinimo" text="Mínimo de {{formulario.get('descricao').errors?.tamanhoMinimo?.tamanho}} caracteres"></app-message>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" style="width: 20%;">
+            <mat-label>Valor</mat-label>
+            <input matInput placeholder="Título da notificação" name="descricao" formControlName="descricao">
+            <app-message [control]="formulario.get('descricao')" error="obrigatoriedade" text="Informe uma descrição"></app-message>
+            <app-message [control]="formulario.get('descricao')" error="tamanhoMinimo" text="Mínimo de {{formulario.get('descricao').errors?.tamanhoMinimo?.tamanho}} caracteres"></app-message>
+        </mat-form-field>
+
+    </div>
+    <form>
+
+
+        <mat-form-field style="width: 40%;" appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="width: 40%;" appearance="fill">
+            <mat-label>Pessoa ativa</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+
+        <mat-form-field style="width: 100%;" appearance="fill">
+            <mat-label>Observação</mat-label>
+            <textarea matInput rows="5" cols="80" placeholder="text"></textarea>
+        </mat-form-field>
+
+    </form>
+
+</mat-card>
+<!--<mat-card>
+
+    <mat-card-title>Lançamentos</mat-card-title>
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>Vencimento</mat-label>
+        <input matInput [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+        <mat-label>Até</mat-label>
+        <input matInput [matDatepicker]="picker2">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+
+    <div class="item item-1" fxFlex="50%" fxFlexOrder="1">
+        <button mat-raised-button color="primary">Pesquisar</button>
+    </div>
+
+    <div class="item item-1" fxFlex="50%" fxFlexOrder="1">
+        <button mat-raised-button color="primary" routerLink="/lancamentos/novo">Novo Lançamento</button>
+    </div>
+    </mat-card>
+
+    -->
+
+<!--
+<div class="container">
+    <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+      <div class="ui-g">
+
+        <div class="ui-g-12">
+          <h1>{{editando ? 'Edição de' : 'Novo'}} Lançamentos</h1>
+        </div>
+
+        <div class="ui-g-12">
+          <p-selectButton name="tipo" [options]="tipos" formControlName="tipo"></p-selectButton>
+        </div>
+
+        <div class="ui-g-6 ui-md-3 ui-fluid">
+            <label style="display: block;">Data Vencimento</label>
+            <p-calendar dateFormat="dd/mm/yy" [locale]="br" [showIcon]="true"
+            name="vencimento" formControlName="dataVencimento"></p-calendar>
+
+            <app-message [control]="formulario.get('dataVencimento')" error="required"
+            text="Informe uma data de vencimento"></app-message>
+        </div>
+        <div class="ui-g-6 ui-md-3 ui-fluid">
+            <label style="display: block;">{{formulario.get('tipo').value ==='RECEITA' ? 'Data Recebimento' : 'Data Pagamento'}}</label>
+            <p-calendar dateFormat="dd/mm/yy" [locale]="br" [showIcon]="true" name="dataPagamento"
+            formControlName="dataPagamento"></p-calendar>
+        </div>
+
+        <div class="ui-g-12 ui-md-9 ui-fluid">
+            <label style="display: block;">Descrição</label>
+            <input type="text" pInputText name="descricao"  formControlName="descricao"/>
+
+             <app-message [control]="formulario.get('descricao')" error="obrigatoriedade"
+            text="Informe uma descrição"></app-message>
+
+            <app-message [control]="formulario.get('descricao')" error="tamanhoMinimo"
+            text="Mínimo de {{formulario.get('descricao').errors?.tamanhoMinimo?.tamanho}} caracteres"></app-message>
+
+        </div>
+
+        <div class="ui-g-12 ui-md-3 ui-fluid">
+            <label style="display: block;">Valor</label>
+            <input pInputText type="text" currencyMask placeholder="0,00"
+            [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false }" name="valor"
+            formControlName="valor"/>
+        </div>
+
+        <div class="ui-g-12 ui-md-6 ui-fluid" formGroupName="categoria">
+            <label style="display: block;">Categoria</label>
+            <p-dropdown name="categoria" [options]="categorias"
+            emptyFilterMessage="nenhuma categoria localizada"
+            placeholder="Selecione" [autoWidth]="false"
+            [filter]="true" formControlName="codigo"></p-dropdown>
+        </div>
+
+        <div class="ui-g-12 ui-md-6 ui-fluid" formGroupName="pessoa">
+            <label style="display: block;">Pessoas Ativa</label>
+            <p-dropdown name="pessoa" [options]="pessoas"
+            emptyFilterMessage="nenhuma pessoa localizada"
+            placeholder="Selecione" [autoWidth]="false"
+            [filter]="true" formControlName="codigo">
+
+          </p-dropdown>
+        </div>
+
+
+
+        <div class="ui-g-12 ui-fluid">
+            <label style="display: block;">Observação</label>
+            <textarea type="text" pInputTextarea rows="3" name="observacao" formControlName="observacao"></textarea>
+        </div>
+
+        <div class="ui-g-6 ui-g-offset-6 ui-md-2 ui-md-offset-10 ui-fluid">
+          <p-fileUpload #fileUpload name="anexo" mode="basic" auto="true"
+          maxFileSize="10485760" (onSelect)="validateFileSize($event, fileUpload.maxFileSize)"
+          chooseLabel="Anexar Documento" accept="image/*,application/*"
+          [url]="urlUploadAnexo"
+          (onProgress)="uploadEmAndamento"
+          (onUpload)="aoTerminarUploadAnexo($event)"
+          (onError)="erroUpload($event)"
+          [hidden]="uploadEmAndamento"></p-fileUpload>
+
+          <p-progressSpinner [hidden]="!uploadEmAndamento" [style]="{ width: '25px', height: '25px' }"  strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+
+        </div>
+
+        <div class="ui-g-12 ui-fluid" dir="rtl" *ngIf="formulario.get('anexo').value">
+            <button pButton type="button" class="ui-button-danger"
+            icon="pi pi-times" pTooltip="Remover anexo" tooltipPosition="top"
+            (click)="removerAnexo()"></button>
+
+          <a target="_blank" pTooltip="Baixar anexo" tooltipPosition="top"
+            [href]="formulario.get('urlAnexo').value">{{ nomeAnexo }}</a>
+        </div>
+
+
+
+        <div class="ui-g-12">
+          <button pButton type="submit" label="Salvar" style="margin-right: 5px;" [disabled]="formulario.invalid || uploadEmAndamento"></button>
+
+          <button pButton type="submit" label="Novo" class="ui-button-info"
+           style="margin-right: 5px;" (click)="novo()"></button>
+
+           <a routerLink="/lancamentos">Voltar para pesquisa</a>
+        </div>
+      </div>
+
+
+    </form>
+  </div> -->

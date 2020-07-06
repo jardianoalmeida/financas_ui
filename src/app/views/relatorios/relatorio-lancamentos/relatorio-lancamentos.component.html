@@ -1,0 +1,52 @@
+<mat-card>
+
+    <mat-card-title>Relatório de Lançamentos por pessoa</mat-card-title>
+
+
+    <!-- <form #f="ngForm" (ngSubmit)="gerar()">
+
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Vencimento</mat-label>
+            <input matInput [matDatepicker]="picker1" required name="periodoInicio" [(ngModel)]="periodoInicio">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Até</mat-label>
+            <input matInput [matDatepicker]="picker2" required name="periodoFim" [(ngModel)]="periodoFim">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 color="primary"></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit " color="primary" [disabled]="f.invalid">Gerar</button>
+
+
+    </form> -->
+    <form [formGroup]="myForm" #f="ngForm" (ngSubmit)="gerar()">
+
+
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Vencimento</mat-label>
+            <input matInput [matDatepicker]="picker1" required formControlName="startDate" name="periodoInicio" [(ngModel)]="periodoInicio">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Até</mat-label>
+            <input matInput [matDatepicker]="picker2" type="text" formControlName="endDate" [errorStateMatcher]="matcher" required name="periodoFim" [(ngModel)]="periodoFim">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="myForm.hasError('endDateLessThanStartDate')">
+                A data de término não pode ser anterior à data de início
+            </mat-error>
+        </mat-form-field>
+
+        <div class="item item-1" fxFlex="50%" fxFlexOrder="1">
+            <button mat-raised-button type="submit " color="primary" [disabled]="f.invalid">Gerar</button>
+        </div>
+    </form>
+
+
+</mat-card>

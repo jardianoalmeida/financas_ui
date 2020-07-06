@@ -1,0 +1,20 @@
+<mat-card>
+
+    <mat-card-title>Remover Notificação</mat-card-title>
+
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Titulo" [value]="product?.titulo" name="titulo">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Mensagem" [value]="product?.mensagem" name="mensagem">
+        </mat-form-field> 
+
+        <img [src]="product?.imagem" alt="imagem" class="img-imagem" style="width: 200px">
+
+    </form>
+
+    <button mat-raised-button (click)="deleteProduct()" color="warn"> Remover Notificação</button>
+    <button mat-raised-button (click)="cancel()"> Cancelar</button>
+</mat-card>

@@ -1,0 +1,39 @@
+<body style="background-color: #3F51B5;">
+  <div class="centralizar">
+
+    <mat-card class="box">
+      <img mat-card-avatar src="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/21_Angular-512.png" height="100px" alt="User Avatar">
+
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-title>Bem-vindo, use o formulário para fazer login</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <mat-error *ngIf="loginInvalid">
+            O nome de usuário e a senha não foram reconhecidos
+          </mat-error>
+
+          <mat-form-field class="full-width-input" appearance="outline">
+            <input matInput placeholder="E-mail" formControlName="email" required>
+            <mat-error>
+              Por favor, forneça um endereço de e-mail válido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width-input" appearance="outline">
+            <input matInput type="password" placeholder="Password" formControlName="senha" required>
+            <mat-error>
+              Forneça uma senha válida
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary">Login</button>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</body>

@@ -1,0 +1,26 @@
+<div mat-dialog-content> 
+    <h2 mat-dialog-title>Testar no dispositivo</h2>
+    <h3>Para testar essa campanha, digite ou selecione a seguir os <a>tokes de registro do FCM</a> do seu dispositivo de desenvolvimento.</h3>
+    <mat-form-field>
+        <input matInput placeholder="Adicione um token de registro do FCM" [(ngModel)]="testeFCM" name="teste">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button [mat-dialog-close]="true"color="primary"> Enviar </button>
+    <button mat-raised-button [mat-dialog-close]="true"> Cancelar</button>
+</div>
+
+<!-- 
+    <h2 mat-dialog-title>Testar no dispositivo</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Para testar essa campanha, digite ou selecione a seguir os tokes de registro do FCM do seu dispositivo de desenvolvimento.</h3>
+  
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
+ -->
