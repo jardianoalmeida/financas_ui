@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
   exibindoMenu = false;
-
+  opened = true;
   constructor(
     public authService: AuthService,
     private auth: AuthService,
@@ -47,5 +47,8 @@ export class NavComponent implements OnInit {
     // });
   }
 
+  log(state): void {
+    console.log(state);
+  }
 
 }

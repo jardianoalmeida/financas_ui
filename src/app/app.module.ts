@@ -71,7 +71,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import { TestarComponent } from './testar/testar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
@@ -86,7 +85,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     ProductUpdateComponent,
     ProductDeleteComponent,
     TestarFcmComponent,
-    TestarComponent,
   ],
   imports: [
     BrowserModule,

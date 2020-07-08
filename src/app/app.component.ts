@@ -19,10 +19,11 @@ export class AppComponent {
     this.authService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
-
+    //this.exibindoNavBar();
   }
 
-  exibindoNavBar() {
+  exibindoNavBar(): boolean {
+    console.log(this.router.url !== '/login');
     return this.router.url !== '/login';
   }
 

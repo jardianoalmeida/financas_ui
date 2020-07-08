@@ -1,3 +1,4 @@
+import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     MatCardModule,
   ],
   exports : [

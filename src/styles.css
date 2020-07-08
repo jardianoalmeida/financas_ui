@@ -1,71 +1,148 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html,
-body {
-    height: 100%;
-}
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
 }
 
-#toolbarMenu {
-    cursor: pointer;
-    margin-right: 20px;
+.full-width {
+  width: 100%;
 }
 
-#mainToolbar .toolbar-spacer {
-    flex: 1 1 auto;
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-#mainToolbar .toolbar-icon {
-    cursor: pointer;
-    margin: 0 8px;
+.spinner {
+  left: 49%;
+  position: fixed !important;
+  top: 15%;
+  z-index: 9999;
 }
 
-#sidenavContainer {
-    margin-top: 64px;
+.text-center {
+  text-align: center;
 }
 
-#sidenav {
-    width: 240px;
+.text-right {
+  text-align: right;
 }
 
-#sidenav.menu-close {
-    width: 70px
+.login-container {
+  height: 80vh;
 }
 
-#sidenav.menu-open {
-    width: 240px
+.login-actions {
+  margin-left: unset !important;
 }
 
-#sidenav .avatar {
-    background-image: url('http://i.pravatar.cc/300');
-    background-size: cover;
+.mat-list-item,
+.mat-menu-item {
+  font-size: 14px !important;
 }
 
-#sidenav .mat-list-item-content {
-    padding: 0;
+.command-wrapper button {
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
-#sidenav .menu-item {
-    width: 100%;
-    border-radius: 0;
-    text-align: left;
-    padding: 10px;
+.mat-dialog-title {
+  margin: 0 !important;
 }
 
-#sidenav .menu-item:hover {
-    background: #eee;
+.mat-column-actions {
+  flex: 0 0 60px;
 }
 
-#sidenav .menu-item mat-icon {
-    margin-right: 20px;
-    margin-left: 12px;
+.mat-table .mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.075);
 }
 
-.dash-list h3 {
-    padding: 12px;
+.mat-table td.mat-cell a:hover {
+  text-decoration: underline;
+}
+
+.mat-table td.mat-cell:first-child,
+.mat-table td.mat-footer-cell:first-child,
+.mat-table th.mat-header-cell:first-child {
+  padding-left: 20px !important;
+}
+
+.mat-table td.mat-cell:last-child,
+.mat-table td.mat-footer-cell:last-child,
+.mat-table th.mat-header-cell:last-child {
+  padding-right: 10px !important;
+}
+
+.mat-table .mat-cell a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.no-records {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.refresh-button {
+  margin-top: 8px !important;
+}
+
+.no-records .mat-icon {
+  width: 130px;
+  height: 130px;
+  font-size: 130px;
+  color: #c7c7c7;
+}
+
+p .mat-icon {
+  vertical-align: middle;
+}
+
+.mat-slide-toggle.full-width {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.mat-tooltip {
+  font-size: 14px;
+}
+
+.fixed-fab {
+  position: fixed !important;
+  right: 2%;
+  bottom: 3%;
+}
+
+/* Highlight on hover */
+.submitted-timesheet-day:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+/* Highlight */
+.submitted-timesheet-day>div:not(.mat-calendar-body-selected) {
+  border-radius: 999px;
+  background-color: rgba(14, 152, 5, 0.25);
+}
+
+.table-wrapper {
+  overflow: auto;
+  height: calc(100vh - 270px);
+  max-height: 450px;
+  /* padding: 10px 5px; */
+}
+
+.animate {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

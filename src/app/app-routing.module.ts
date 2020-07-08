@@ -1,4 +1,3 @@
-import { TestarComponent } from './testar/testar.component';
 import { NaoAutorizadoComponent } from './components/template/nao-autorizado.component';
 import { PaginaNaoEncontradaComponent } from './components/template/pagina-nao-encontrada.component';
 import { LoginComponent } from './seguranca/login/login.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
     //{path: "login", component: LoginComponent},
     //{ path: 'dashboard', loadChildren: () => import('dashboard/dashboard.module').then(m => m.DashboardModule) },
    // {path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard]},
-   { path: 'testar', component: TestarComponent },
    {path: "notificacao", component: ProductCrudComponent},
    {path: "notificacao/create", component: ProductCreateComponent, canActivate: [AuthGuard]},
    {path: "products/update/:id", component: ProductUpdateComponent, canActivate: [AuthGuard]},

@@ -50,7 +50,7 @@ export class PessoasPesquisaComponent implements OnInit {
 
     this.pessoaService.pesquisar(this.filtro)
       .then(resultado => {
-        console.log(resultado.pessoas.endereco.cidade);
+        console.log("Cidade: " + resultado.pessoas.nomePessoa);
         this.totalRegistros = resultado.total;
         this.pessoas = resultado.pessoas;
       });
